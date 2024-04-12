@@ -25,8 +25,8 @@ class UpdateTaskRequest extends FormRequest
             'title' => 'required|min:3|max:255',
             'description' => 'nullable',
             'color' => 'nullable',
-            'favorite' => 'boolean',
-            'completed' => 'boolean',
+            'favorite' => 'boolean|nullable',
+            'completed' => 'boolean|nullable',
         ];
     }
 }
