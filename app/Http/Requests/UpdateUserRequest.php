@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class UpdateTaskRequest extends FormRequest
+class UpdateUserRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -21,12 +21,14 @@ class UpdateTaskRequest extends FormRequest
      */
     public function rules(): array
     {
+        /* $table->string('name');
+            $table->string('email')->unique();
+            $table->timestamp('email_verified_at')->nullable();
+            $table->string('password'); */
         return [
-            'title' => 'required|min:3|max:255',
-            'description' => 'nullable',
-            'color' => 'nullable',
-            'favorite' => 'boolean',
-            'completed' => 'boolean',
+            'name' => 'required|min:3|max:255',
+            'email' => 'required|email',
+            'password' => 'nullable|min:3|confirmed',
         ];
     }
 }

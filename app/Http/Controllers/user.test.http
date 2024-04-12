@@ -1,0 +1,27 @@
+@host = http://corelab-api-challange-php.test/api
+###
+POST {{host}}/users HTTP/1.1
+Content-Type: application/json
+
+{
+    "name": "user",
+    "email": "user@gmail.com",
+    "password": "123"
+}
+
+###
+
+GET {{host}}/users HTTP/1.1
+Content-Type: application/json
+
+###
+
+POST {{host}}/login HTTP/1.1
+Content-Type: application/json
+
+{
+    "email": "user@gmail.com",
+    "password": "123"
+}
+
+###

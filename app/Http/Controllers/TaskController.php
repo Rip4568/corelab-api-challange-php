@@ -14,15 +14,10 @@ class TaskController extends Controller
      */
     public function index()
     {
-        return response()->json(["Tasks" => 123]);
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
+        $tasks = Task::where('user_id', auth()->user()->id)
+            ->orderBy('completed', 'desc')
+            ->get();
+        return response()->json(['tasks' => $tasks]);
     }
 
     /**
@@ -30,7 +25,12 @@ class TaskController extends Controller
      */
     public function store(StoreTaskRequest $request)
     {
-        //
+
+        $task = Task::create($request->all());
+        return response()->json([
+            'message' => 'Tarefa criada com sucesso',
+            'task' => $task
+        ]);
     }
 
     /**
@@ -38,15 +38,7 @@ class TaskController extends Controller
      */
     public function show(Task $task)
     {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Task $task)
-    {
-        //
+        return response()->json(['task' => $task]);
     }
 
     /**
@@ -54,7 +46,8 @@ class TaskController extends Controller
      */
     public function update(UpdateTaskRequest $request, Task $task)
     {
-        //
+        $task = Task::where('id', $task->id)->update($request->all());
+        return response()->json(['message' => 'Tarefa atualizada com sucesso', 'task' => $task]);
     }
 
     /**
@@ -62,6 +55,7 @@ class TaskController extends Controller
      */
     public function destroy(Task $task)
     {
-        //
+        $task->delete();
+        return response()->json(['message' => 'Tarefa deletada com sucesso']);
     }
 }

@@ -23,6 +23,12 @@ return new class extends Migration
             $table->boolean('completed')->default(false);
             $table->string('color')->default('white');
             $table->timestamps();
+
+            // Índices para melhorar a performance de consulta
+            $table->index('user_id');
+            $table->index('favorite');
+            $table->index('completed');
+            $table->index('title');
         });
     }
 
