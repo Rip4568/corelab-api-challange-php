@@ -1,3 +1,51 @@
+
+# Core Lab API Challlange PHP and Laravel
+
+Ola! este é mais um projeto de desafio de construção de um sistema web REST'full em Laravel, seu intuito é um projeto de criação de usuarios, tasks (tarefas) e autenticação.
+
+
+## Demonstração
+
+Todos os testes você pode fazer utilizando os arquivos *.test.http ou rodando comandos como CURL, passando a chave de autenticação para rotas das tasks.
+
+``` 
+curl -X POST http://localhost:8000/api/users \
+-H "Content-Type: application/json" \
+-d '{
+    "name": "user",
+    "email": "user@gmail.com",
+    "password": "123"
+}'
+
+```
+
+
+## Testar
+
+Para testar esse projeto recomendo fortemente que você use ferramentas de desenvolvimento para PHP, para construir esse sistema eu utilizei o laragon na sua ultima versão (desenvolvi no sistema WINDOWS), porem sinta-se livra para utilizar WAMP, XAPM ou LAMP.
+Apos a instalação, certifique-se de utilizar a versão correspondente da linguagem do php: 8.3 e a versão do Laravel 11x. Ao iniciar o Laragon você pode rodar o comando
+
+```bash
+  php artisan migrate
+```
+
+Para aplicar todas as migrações para o banco de dados (não esquecendo de configurar o arquivo .env.example)
+## Funcionalidades
+
+- Criação da conta de usario
+- Atualização da conta do usuario
+- Autenticação
+- Criação das Task
+- Atualização das Task
+- Deletação das Task
+- Listagem das Task
+
+
+## Melhorias
+
+O que pode melhorar no projeto? tudo!
+
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
 <p align="center">
